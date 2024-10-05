@@ -1,7 +1,10 @@
 import axios from "axios"
 
 async function fetchData(){
-    const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details");
+    // const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details");
+
+    // fetch data from local server
+    const response = await axios.get("http://localhost:3000/api/user")
 
     // 5 sec late for chcking loading
     await new Promise(function (resolve:any) {
