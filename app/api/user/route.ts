@@ -1,4 +1,7 @@
+import { PrismaClient } from "@prisma/client";
+
 import { NextRequest, NextResponse } from "next/server";
+const client = new PrismaClient();
 
 export function GET(req:NextRequest){
     return NextResponse.json({
@@ -7,9 +10,17 @@ export function GET(req:NextRequest){
     })
 }
 
+
+// 
 export async function POST(req:NextRequest){
     // body
     const body = await req.json();
+    await client.user.create({
+        data:{
+            email:body.username,
+            password:body.password
+        }
+    })
 
     // // headers
     // console.log(req.headers.get("authorization"));
