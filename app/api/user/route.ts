@@ -11,14 +11,14 @@ export async function POST(req:NextRequest){
     // body
     const body = await req.json();
 
-    // headers
-    console.log(req.headers.get("authorization"));
+    // // headers
+    // console.log(req.headers.get("authorization"));
 
-    // query parameters
-    console.log(req.nextUrl.searchParams.get("name"));
+    // // query parameters
+    // console.log(req.nextUrl.searchParams.get("name"));
     
     
     return NextResponse.json({
-        message:"You are signed up"
+        body
     })
 }
